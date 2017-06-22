@@ -3,9 +3,8 @@
   var socket = io();
   var C = new Audio('C_64kb.mp3');
   var D = new Audio('D_64kb.mp3');
-   var sound= new Audio('C_64kb.mp3'); 
-  sound.load();
-console.log(C);
+var chord='C';
+
  var current = {
     chord: 'C'
   };
@@ -14,20 +13,31 @@ window.addEventListener("keydown",onKeyDown,false);
 
 function onKeyDown(event) {
   var keyCode = event.keyCode;
+ console.log(keyCode);
   switch (keyCode) {
       case 68: //d
-       sound = D;
+       chord = 'D';
       break;
       case 67: //c
-	 sound =C;
+	 chord ='C';
 	break;
  }
 }
 function play()
 {
-sound.pause();
-sound.load();
-sound.play();
+switch(chord){
+case 'C':
+C.pause();
+D.pause();
+C.load();
+C.play();
+break;
+case 'D':
+D.pause();
+D.load();
+D.play();
+break;
+}
 }
 function onClick()
 {
