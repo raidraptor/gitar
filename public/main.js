@@ -33,6 +33,7 @@ C.load();
 C.play();
 break;
 case 'D':
+C.pause();
 D.pause();
 D.load();
 D.play();
@@ -41,7 +42,7 @@ break;
 }
 function onClick()
 {
-console.log(current);
+console.log(chord);
 socket.emit('music',current);
 play();
 }
